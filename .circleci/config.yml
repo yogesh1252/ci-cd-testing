@@ -12,7 +12,7 @@ jobs:
       - run: npm i
       - run: npm run build
       - store_artifacts:
-          path: ~/windows_repo/dist
+          path: ~/windows_repo/build
 
 workflows:
   version: 2.1
