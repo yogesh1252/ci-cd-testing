@@ -1,0 +1,21 @@
+version: 2.1
+orbs:
+  win: circleci/windows@2.2.0
+jobs:
+  build_windows:
+    working_directory: ~/windows_repo
+    executor:
+      name: win/default
+      shell: powershell.exe
+    steps:
+      - checkout
+      - run: npm i
+      - run: react-scripts build
+      - store_artifacts:
+          path: ~/windows_repo/dist
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - build_windows
